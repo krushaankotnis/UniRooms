@@ -47,6 +47,13 @@ export function Header({ navigateTo, userType, isLoggedIn, logout, currentPage }
             >
               About
             </button>
+
+            <button onClick={() => navigateTo("services")}
+              className={`text-sm hover:text-blue-600 transition-colors ${
+                currentPage === 'services' ? 'text-blue-600' : 'text-gray-700'
+              }`}>
+  Services
+</button>
             <button
               onClick={() => navigateTo('contact')}
               className={`text-sm hover:text-blue-600 transition-colors ${

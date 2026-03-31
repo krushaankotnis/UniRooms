@@ -21,6 +21,8 @@ import { AdminHostelManagement } from "./components/AdminHostelManagement";
 import { AdminBookingManagement } from "./components/AdminBookingManagement";
 import { AdminReviews } from "./components/AdminReviews";
 import { AdminSettings } from "./components/AdminSettings";
+import { Chatbot } from "./components/Chatbot";
+import { Services } from "./components/Services";
 
 // ✅ Default import (correct)
 import PaymentQRPage from "./components/PaymentQRPage";
@@ -46,6 +48,7 @@ export type Page =
   | "owner-dashboard"
   | "about"
   | "contact"
+  | "services"
   | "admin-login"
   | "admin-dashboard"
   | "admin-users"
@@ -248,6 +251,9 @@ export default function App() {
       case "contact":
         return <ContactPage navigateTo={navigateTo} />;
 
+        case "services":
+  return <Services />;
+
       // ✅ FIXED: Removed login() from AdminLogin
       case "admin-login":
         return (
@@ -308,6 +314,7 @@ export default function App() {
       <main className={isAdminPage ? "" : "pt-16"}>
         {renderPage()}
       </main>
+      <Chatbot />
     </div>
   );
 }

@@ -71,52 +71,60 @@ export function AdminDashboard({ navigateTo, logout }: AdminDashboardProps) {
     <AdminLayout activePage="admin-dashboard" navigateTo={navigateTo} logout={logout}>
       <div className="space-y-6">
 
-        {/* 🔥 IMPROVED STATS */}
+        {/* 🔥 MODERN STATS UI */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-          <Card className="shadow-md rounded-xl">
-            <CardContent className="p-5 flex justify-between">
+          <Card className="shadow-md rounded-2xl hover:shadow-xl transition">
+            <CardContent className="p-6 flex items-center justify-between">
               <div>
-                <p className="text-gray-500">Students</p>
-                <h2 className="text-2xl font-bold">{stats.students}</h2>
+                <p className="text-gray-500 text-sm">Students</p>
+                <h2 className="text-3xl font-bold text-gray-800">{stats.students}</h2>
               </div>
-              <Users className="text-blue-600" />
+              <div className="bg-blue-100 p-3 rounded-full">
+                <Users className="text-blue-600 w-6 h-6" />
+              </div>
             </CardContent>
           </Card>
 
-          <Card className="shadow-md rounded-xl">
-            <CardContent className="p-5 flex justify-between">
+          <Card className="shadow-md rounded-2xl hover:shadow-xl transition">
+            <CardContent className="p-6 flex items-center justify-between">
               <div>
-                <p className="text-gray-500">Owners</p>
-                <h2 className="text-2xl font-bold">{stats.owners}</h2>
+                <p className="text-gray-500 text-sm">Owners</p>
+                <h2 className="text-3xl font-bold text-gray-800">{stats.owners}</h2>
               </div>
-              <Users className="text-purple-600" />
+              <div className="bg-purple-100 p-3 rounded-full">
+                <Users className="text-purple-600 w-6 h-6" />
+              </div>
             </CardContent>
           </Card>
 
-          <Card className="shadow-md rounded-xl">
-            <CardContent className="p-5 flex justify-between">
+          <Card className="shadow-md rounded-2xl hover:shadow-xl transition">
+            <CardContent className="p-6 flex items-center justify-between">
               <div>
-                <p className="text-gray-500">Hostels</p>
-                <h2 className="text-2xl font-bold">{stats.hostels}</h2>
+                <p className="text-gray-500 text-sm">Hostels</p>
+                <h2 className="text-3xl font-bold text-gray-800">{stats.hostels}</h2>
               </div>
-              <Building2 className="text-green-600" />
+              <div className="bg-green-100 p-3 rounded-full">
+                <Building2 className="text-green-600 w-6 h-6" />
+              </div>
             </CardContent>
           </Card>
 
-          <Card className="shadow-md rounded-xl">
-            <CardContent className="p-5 flex justify-between">
+          <Card className="shadow-md rounded-2xl hover:shadow-xl transition">
+            <CardContent className="p-6 flex items-center justify-between">
               <div>
-                <p className="text-gray-500">Bookings</p>
-                <h2 className="text-2xl font-bold">{stats.bookings}</h2>
+                <p className="text-gray-500 text-sm">Bookings</p>
+                <h2 className="text-3xl font-bold text-gray-800">{stats.bookings}</h2>
               </div>
-              <Calendar className="text-orange-600" />
+              <div className="bg-orange-100 p-3 rounded-full">
+                <Calendar className="text-orange-600 w-6 h-6" />
+              </div>
             </CardContent>
           </Card>
 
         </div>
 
-        {/* 🔥 SERVICE BOOKINGS */}
+        {/* 🔥 SERVICE BOOKINGS (UNCHANGED) */}
         <Card>
           <CardHeader>
             <CardTitle>Service Bookings</CardTitle>

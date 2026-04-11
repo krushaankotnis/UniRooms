@@ -11,6 +11,7 @@ import { ArrowLeft, Calendar as CalendarIcon, CreditCard, Smartphone, Building2 
 import { format } from 'date-fns';
 import { Page, Hostel } from '../App';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import emailjs from "emailjs-com";
 
 // Firebase
 import { db, auth } from '../firebase';
@@ -78,6 +79,31 @@ export function BookingPage({ navigateTo, hostel, setCurrentBookingId }: Booking
 
   const pricing = calculateTotal();
 
+  const sendEmail = (data: any) => {
+  emailjs.send(
+    "service_fjtwmzo",
+    "template_086t8p7",
+    {
+      name: data.studentName,
+      email: data.studentEmail,
+      hostel: data.hostelName,
+      room: data.roomType,
+      date: new Date(data.checkInDate).toLocaleDateString(),
+      duration: data.duration,
+      amount: data.pricing.total,
+      payment: data.paymentMethod,
+      status: data.status
+    },
+    "sL_iRwBG50q-fXsg_"
+  )
+  .then(() => {
+    console.log("✅ Email sent");
+  })
+  .catch((err) => {
+    console.error("❌ Email error:", err);
+  });
+};
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -112,6 +138,7 @@ export function BookingPage({ navigateTo, hostel, setCurrentBookingId }: Booking
 
       const docRef = await addDoc(collection(db, 'bookings'), bookingData);
 
+      sendEmail(bookingData);
       console.log('Booking saved with ID:', docRef.id);
 
       // ✅ If Google Pay → Go to QR Page

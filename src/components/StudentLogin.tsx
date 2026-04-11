@@ -41,8 +41,15 @@ export function StudentLogin({ navigateTo, login }: StudentLoginProps) {
 
     try {
       await signInWithEmailAndPassword(auth, formData.email, formData.password);
+      
+      localStorage.setItem("user", JSON.stringify({
+  email: formData.email}));
+      
       alert("Login successful!");
-      login(); // your existing navigation logic
+      login();// your existing navigation logic
+
+      navigateTo("search-browse");
+
     } catch (err: any) {
       console.error("Login error:", err);
       if (err.code === "auth/invalid-credential" || err.code === "auth/user-not-found") {

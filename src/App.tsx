@@ -23,6 +23,7 @@ import { AdminReviews } from "./components/AdminReviews";
 import { AdminSettings } from "./components/AdminSettings";
 import { Chatbot } from "./components/Chatbot";
 import { Services } from "./components/Services";
+import { UserSettings } from "./components/UserSettings";
 
 // ✅ Default import (correct)
 import PaymentQRPage from "./components/PaymentQRPage";
@@ -55,7 +56,8 @@ export type Page =
   | "admin-hostels"
   | "admin-bookings"
   | "admin-reviews"
-  | "admin-settings";
+  | "admin-settings"
+  | "user-settings";
 
 export interface Hostel {
   id: string;
@@ -280,7 +282,10 @@ export default function App() {
       case "admin-settings":
         return <AdminSettings navigateTo={navigateTo} logout={logout} />;
 
-      default:
+      case "user-settings":
+        return <UserSettings navigateTo={navigateTo} logout={logout} />;
+     
+        default:
         return (
           <LandingPage
             navigateTo={navigateTo}

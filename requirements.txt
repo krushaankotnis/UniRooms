@@ -1,0 +1,8 @@
+# Common Python development and utility dependencies for this project.
+# Edit as needed.
+black
+isort
+flake8
+pre-commit
+python-dotenv
+requests
